@@ -4,7 +4,14 @@
   "description": "URLs Shortener application",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lintJS": "eslint --fix ./src",
+    "lintCSS": "stylelint src/**/*.css",
+    "precommit": "npm run lintJS --loglevel=silent && npm run lintCSS --loglevel=silent",
+    "prepush": "npm run test",
+    "test": "babel-node node_modules/.bin/_mocha --require ./test/index.js -c src/**/*.test.js",
+    "browser": "cross-env NODE_ENV=development babel-node ./server.js",
+    "build": "webpack --config ./webpack.config.prod.js",
+    "server": "npm run build && cross-env NODE_ENV=production babel-node ./server.js"
   },
   "repository": {
     "type": "git",
