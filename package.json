@@ -1,0 +1,31 @@
+{
+  "name": "shotener-frontend",
+  "version": "0.0.1",
+  "description": "URLs Shortener application",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nardonykolyszyn/shortener-app.git"
+  },
+  "author": "Nardo Nykolyszyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nardonykolyszyn/shortener-app/issues"
+  },
+  "homepage": "https://github.com/nardonykolyszyn/shortener-app#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.2.0",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  }
+}
