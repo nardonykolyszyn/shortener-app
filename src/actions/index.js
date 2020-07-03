@@ -3,9 +3,8 @@ import api from '../lib/api';
 // Shortened Urls
 export const REQUEST_URLS = 'REQUEST_URLS';
 export const RECEIVE_URLS = 'RECEIVE_URLS';
-// /Posts/:id
-export const REQUEST_POST = 'REQUEST_POST';
-export const RECEIVE_POST = 'RECEIVE_POST';
+export const SHORTENER_URL_REQUEST = 'SHORTENER_URL_REQUEST';
+export const SHORTENER_URL_RECEIVE = 'SHORTENER_URL_RECEIVE';
 
 export const requestUrls = () => ({
   type: REQUEST_URLS
@@ -17,18 +16,18 @@ export const receiveUrls = json => ({
   receivedAt: Date.now()
 });
 
-export const requestPost = () => ({
-  type: REQUEST_POST
+export const shortenerUrlRequest = () => ({
+  type: REQUEST_URLS
 });
 
-export const receivePost = json => ({
-  type: RECEIVE_POST,
-  posts: json.data[0],
+export const shortenerUrlReceive = json => ({
+  type: RECEIVE_URLS,
+  urls: json.data || [],
   receivedAt: Date.now()
 });
 
 export const fetchUrls = () => (
-  dispatch => api('https://shortener.devpolish.com/api/v1/shortened_urls')
+  dispatch => api('https://api.devpolish.com/api/v1/shortened_urls')
     .then(
       json => dispatch(receiveUrls(json))
     )
