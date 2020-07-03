@@ -8,7 +8,7 @@ if (process.env.WEBPACK) {
 
 const Header = () => (
   <div className="Header">
-    <h1 className="Header-title">React Redux Boilerplate</h1>
+    <h1 className="Header-title">Shortener APP</h1>
     <ul className="Header-menu">
       <Link to="/">Home</Link>
     </ul>
