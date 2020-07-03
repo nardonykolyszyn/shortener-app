@@ -1,25 +1,25 @@
 import {
-  REQUEST_POSTS, RECEIVE_POSTS
+  REQUEST_URLS, RECEIVE_URLS
 } from '../actions';
 
 export default (state = {
   isFetching: false,
   didInvalidate: false,
-  posts: []
+  urls: []
 }, action) => {
   switch (action.type) {
-    case REQUEST_POSTS:
+    case REQUEST_URLS:
       return {
         ...state,
         isFetching: true,
         didInvalidate: false
       };
-    case RECEIVE_POSTS:
+    case RECEIVE_URLS:
       return {
         ...state,
         isFetching: false,
         didInvalidate: false,
-        posts: action.posts,
+        urls: action.urls,
         lastUpdated: action.receivedAt
       };
     default:

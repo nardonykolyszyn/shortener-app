@@ -1,17 +1,19 @@
 import api from '../lib/api';
 
-export const REQUEST_POSTS = 'REQUEST_POSTS';
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
+// Shortened Urls
+export const REQUEST_URLS = 'REQUEST_URLS';
+export const RECEIVE_URLS = 'RECEIVE_URLS';
+// /Posts/:id
 export const REQUEST_POST = 'REQUEST_POST';
 export const RECEIVE_POST = 'RECEIVE_POST';
 
-export const requestPosts = () => ({
-  type: REQUEST_POSTS
+export const requestUrls = () => ({
+  type: REQUEST_URLS
 });
 
-export const receivePosts = json => ({
-  type: RECEIVE_POSTS,
-  posts: json.data.slice(0, 10).map(child => child) || [],
+export const receiveUrls = json => ({
+  type: RECEIVE_URLS,
+  urls: json.data.result || [],
   receivedAt: Date.now()
 });
 
@@ -25,28 +27,29 @@ export const receivePost = json => ({
   receivedAt: Date.now()
 });
 
-export const fetchPosts = () => (
-  dispatch => api('https://jsonplaceholder.typicode.com/posts')
+export const fetchUrls = () => (
+  dispatch => api('https://shortener.devpolish.com/api/v1/shortened_urls')
     .then(
-      json => dispatch(receivePosts(json)),
+      json => dispatch(receiveUrls(json))
     )
 );
 
-const shouldFetchPosts = () => {
-  const posts = false;
-  if (!posts) {
+const shouldFetchUrls = () => {
+  const urls = false;
+  if (!urls) {
     return true;
   }
-  if (posts.isFetching) {
+  if (urls.isFetching) {
     return false;
   }
-  return posts.didInvalidate;
+  return urls.didInvalidate;
 };
 
-export const fetchPostsIfNeeded = () => (
+
+export const fetchUrlsIfNeeded = () => (
   (dispatch, getState) => {
-    if (shouldFetchPosts(getState())) {
-      dispatch(fetchPosts());
+    if (shouldFetchUrls(getState())) {
+      dispatch(fetchUrls());
     }
   }
 );
