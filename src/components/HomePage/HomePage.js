@@ -33,7 +33,7 @@ export class HomePage extends Component {
 
 
         {isEmpty
-          ? (isFetching ? <h3>Loading...</h3> : <h4 className="HomePage-message">Empty :(</h4>)
+          ? (isFetching ? <h3>Loading...</h3> : <h4 className="HomePage-message">Not results</h4>)
           : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
             <Urls urls={urls.data} />
           </div>
