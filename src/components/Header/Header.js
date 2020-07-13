@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 // Import can't be in conditional so use require.
 if (process.env.WEBPACK) {
   require('./Header.css'); // eslint-disable-line global-require
 }
 
+
 const Header = () => (
-  <div className="Header">
-    <h1 className="Header-title">Shortener APP</h1>
-    <ul className="Header-menu">
-      <Link to="/">Home</Link>
-    </ul>
-  </div>
+  <AppBar position="static" className="header" color="inherit">
+    <Toolbar variant="dense" className="toolbar">
+      <img src="../../img/logo.png" className="logo" />
+    </Toolbar>
+  </AppBar>
 );
 
 export default Header;

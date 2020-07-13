@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchUrlsIfNeeded } from '../../actions';
 import Urls from '../Urls/Urls';
 import Header from '../Header/Header';
+import Typography from '@material-ui/core/Typography';
 
 // Import can't be in conditional so use require.
 if (process.env.WEBPACK) {
@@ -29,16 +30,15 @@ export class HomePage extends Component {
     return (
       <div className="HomePage">
         <Header />
-        <h3 className="f-medium">Frequently Visited | Top 100</h3>
-
-
-        {isEmpty
-          ? (isFetching ? <h3>Loading...</h3> : <h4 className="HomePage-message">Not results</h4>)
-          : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Urls urls={urls.data} />
-          </div>
-        }
-
+        <div className="HomeBody">
+          <Typography className="f-medium highlighted" variant="h5">Most visited URLs</Typography>
+          {isEmpty
+            ? (isFetching ? <h3>Loading...</h3> : <h4 className="HomePage-message">Not results</h4>)
+            : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+              <Urls urls={urls.data} />
+            </div>
+          }
+        </div>
       </div>
     );
   }

@@ -16,7 +16,7 @@ if (process.env.WEBPACK) {
 
 
 const Urls = props => (
-  <div>
+  <div className="table-container">
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
@@ -46,7 +46,8 @@ const Urls = props => (
 
       </Table>
     </TableContainer>
-    <div className="shorten-wrap">
+    
+    <div>
       <UrlForm />
     </div>
   </div >

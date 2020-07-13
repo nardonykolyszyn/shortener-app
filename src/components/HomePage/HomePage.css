@@ -3,3 +3,12 @@
 .HomePage-message {
   color: $gray;
 }
+
+.HomeBody {
+  margin: 30px 40px;
+}
+
+.highlighted {
+  border-bottom: 2px solid #a3f7bf;
+  display: inline-block;
+}

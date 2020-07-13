@@ -6,8 +6,7 @@
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 18px;
   margin: 0 auto;
-  max-width: 1000px;
-  padding: 20px;
+  max-width: 100%;
 
   a {
     color: $blue;
@@ -17,4 +16,10 @@
       color: $blue;
     }
   }
+}
+
+body {
+  background-color: #222831;
+  color: #fff;
+  margin: 0px;
 }
