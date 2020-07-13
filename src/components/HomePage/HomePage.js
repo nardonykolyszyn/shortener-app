@@ -12,6 +12,7 @@ if (process.env.WEBPACK) {
 }
 
 export class HomePage extends Component {
+
   static propTypes = {
     isFetching: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired,

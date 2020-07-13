@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 import UrlForm from '../UrlForm/UrlForm';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { createNewUrl } from '../../actions';
 
 if (process.env.WEBPACK) {
   require('./Urls.css'); // eslint-disable-line global-require

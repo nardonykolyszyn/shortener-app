@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { createNewUrl, fetchUrlsIfNeeded  } from '../../actions';
+import { connect } from 'react-redux';
+
 
 // Import can't be in conditional so use require.
 if (process.env.WEBPACK) {
@@ -9,7 +9,7 @@ if (process.env.WEBPACK) {
 }
 
 
-export default class UrlForm extends React.Component {
+export class UrlForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,9 +24,14 @@ export default class UrlForm extends React.Component {
     this.setState({ url: e.target.value });
   }
 
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchUrlsIfNeeded)
+  }
+
   handleSubmit(event) {
-    alert(`A name was submitted: ${this.state.url}`);
-    event.preventDefault();
+    const { dispatch } = this.props;
+    dispatch(createNewUrl(this.state.url))
   }
 
   render() {
@@ -42,3 +47,7 @@ export default class UrlForm extends React.Component {
 UrlForm.propTypes = {
 };
 
+
+
+
+export default connect(null)(UrlForm);
