@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "chai": "3.5.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
